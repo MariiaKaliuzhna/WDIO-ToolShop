@@ -1,0 +1,21 @@
+{
+  "name": "wdio-toolshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run ./wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/cli": "^9.25.0",
+    "@wdio/local-runner": "^9.25.0",
+    "@wdio/mocha-framework": "^9.25.0",
+    "@wdio/spec-reporter": "^9.25.0"
+  },
+  "dependencies": {
+    "chai": "^6.2.2"
+  }
+}
