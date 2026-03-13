@@ -10,7 +10,7 @@ class LoginPage extends Page {
         return $('#password');
     }
 
-    get Error () {
+    get error () {
         return $('.help-block');
     }
 
