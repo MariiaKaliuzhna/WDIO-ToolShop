@@ -43,7 +43,6 @@ describe('Profile tests', () => {
 
         await pages.HomePage.cardProduct.click();
         await pages.ProductPage.btnAddToCart.click();
-        await browser.pause(2000);
 
         const text = await pages.ProductPage.msgAdding.getText();
         expectChai(text).to.include('Product added to shopping cart.');
@@ -62,14 +61,13 @@ describe('Profile tests', () => {
 
         await pages.HomePage.cardProduct.click();
         await pages.ProductPage.btnAddToCart.click();
-        await browser.pause(2000);
 
         await pages.CheckoutPage.open();
         await pages.CheckoutPage.btnContinue('1').click();
-        await browser.pause(2000);
         await pages.CheckoutPage.btnContinue('2').click();
 
         await pages.CheckoutPage.fillingAddress('Test', '1');
+        await pages.CheckoutPage.btnContinue('3').waitForClickable({ timeout: 2000 });
         await pages.CheckoutPage.btnContinue('3').click();
 
         await pages.CheckoutPage.listPayment.click();
@@ -119,6 +117,7 @@ describe('Negative testing', () => {
         await browser.keys(['Home']);
         await browser.keys('Enter');
 
+        await pages.HomePage.noResults.waitForDisplayed({ timeout: 1500 });
         const text = await pages.HomePage.noResults.getText();
         assert.equal(text, 'There are no products found.');
     });
